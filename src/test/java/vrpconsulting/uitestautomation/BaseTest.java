@@ -1,21 +1,23 @@
-package org.vrpconsulting.testautomation;
+package vrpconsulting.uitestautomation;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.vrpconsulting.testautomation.driverInitialization.DriverBuilder;
+import vrpconsulting.uitestautomation.factories.DriverFactory;
+import vrpconsulting.uitestautomation.pages.CommonPage;
+import vrpconsulting.uitestautomation.pages.LoginPage;
 
 
-public class BaseTest {
+public class BaseTest extends CommonPage {
 
     @BeforeMethod(alwaysRun = true)
     public void createDriver() {
-        WebDriver driver = DriverBuilder.getWebBrowserDriver();
+        WebDriver driver = DriverFactory.getWebBrowserDriver();
         driver.manage().window().maximize();
     }
 
     @AfterMethod(alwaysRun = true)
     public void closeDriver() {
-        DriverBuilder.quit();
+        DriverFactory.quit();
     }
 }

@@ -1,4 +1,4 @@
-package vrpconsulting.uitestautomation.driverInitialization;
+package vrpconsulting.uitestautomation.factories;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebDriver;

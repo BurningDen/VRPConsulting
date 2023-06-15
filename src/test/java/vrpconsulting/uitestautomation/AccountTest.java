@@ -1,14 +1,27 @@
 package vrpconsulting.uitestautomation;
+import org.springframework.core.annotation.Order;
 import org.testng.annotations.Test;
-import vrpconsulting.uitestautomation.factories.DriverFactory;
 
-public class LoginTest extends BaseTest {
+public class AccountTest extends BaseTest {
 
+    @Test(description = "Test case no. 1")
+    @Order
+    public void createAccountTest() {
+        startFromLoginPage().
+                LogInApp();
+        getAccountsPage()
+                .openAndCreateNewAccount()
+                .fillRequiredFieldsAndVerify();
+    }
 
-    @Test()
-    public void login() {
-        startAppFromLoginPage()
-                .LogInApp()
-;
+    @Test(description = "Test case no. 2")
+    public void updateAccountTest() {
+        startFromLoginPage().
+                LogInApp();
+        getAccountsPage()
+                .openAndCreateNewAccount()
+                .fillRequiredFieldsAndVerify()
+                .openEditAccount()
+                .updateFieldsAndVerify();
     }
 }
